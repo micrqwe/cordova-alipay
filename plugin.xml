@@ -63,6 +63,7 @@
         <source-file src="src/android/libs/alipaySdk-20161009.jar" target-dir="libs"/>
 
         <source-file src="src/android/AliPayPlugin.java" target-dir="src/net/kingsilk/www"/>
+        <source-file src="src/android/PayResult.java" target-dir="src/net/kingsilk/www"/>
     </platform>
 
     <platform name="ios">

@@ -14,6 +14,7 @@ import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.Map;
 
 public class AliPayPlugin extends CordovaPlugin {
     private static String TAG = "AliPayPlugin";
@@ -42,17 +43,17 @@ public class AliPayPlugin extends CordovaPlugin {
                     // 构造PayTask 对象
                     PayTask alipay = new PayTask(cordova.getActivity());
                     // 调用支付接口，获取支付结果
-                    String result = alipay.payV2(params, true);
+                    Map<String, String> result = alipay.payV2(params, true);
                     PayResult payResult = new PayResult(result);
                     if (TextUtils.equals(payResult.getResultStatus(), "9000")) {
-                        callbackContexts.success(payResult.toJson());
+                        callbackContexts.success(payResult.toString());
                     } else {
                         // 判断resultStatus 为非“9000”则代表可能支付失败
                         // “8000”代表支付结果因为支付渠道原因或者系统原因还在等待支付结果确认，最终交易是否成功以服务端异步通知为准（小概率状态）
                         if (TextUtils.equals(payResult.getResultStatus(), "8000")) {
-                            callbackContexts.success(payResult.toJson());
+                            callbackContexts.success(payResult.toString());
                         } else {
-                            callbackContexts.error(payResult.toJson());
+                            callbackContexts.error(payResult.toString());
                         }
                     }
                 }
