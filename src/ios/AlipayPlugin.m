@@ -1,6 +1,5 @@
 #import "AlipayPlugin.h"
 
-#import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
 
 @implementation AlipayPlugin
