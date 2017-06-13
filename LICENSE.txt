@@ -1,0 +1,10 @@
+/*
+* http://micrqwe.github.io
+*
+* Copyright (c) 2010 Hunter.z
+*
+* Licensed same as jquery - MIT License
+* http://www.opensource.org/licenses/mit-license.php
+*
+* email: micrqwe@163.com
+*/
